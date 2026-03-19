@@ -97,6 +97,34 @@ sudo systemctl restart crond
 
 ---
 
+### fakeip
+
+Linux 临时代理设置脚本，通过环境变量配置系统代理。
+
+**功能：**
+- 设置 HTTP/HTTPS 代理
+- 设置 SOCKS5 代理
+- 快速开启/关闭代理
+
+**配置：**
+编辑 `fakeip/fakeip.sh` 中的配置区域：
+```bash
+export CLASH_IP="192.168.9.102"      # Clash API 地址
+export PROXY_PORT_HTTP="7899"        # HTTP(S) 代理端口
+export PROXY_PORT_SOCKS5="7898"      # SOCKS5 代理端口
+```
+
+**使用：**
+```bash
+# 启用代理（需要 source 执行）
+source fakeip/fakeip.sh
+
+# 关闭代理
+source fakeip/clear.sh
+```
+
+---
+
 ## 注意事项
 
 1. `iptest.py` 和 `checkgateway.py` 中的敏感配置需要根据实际环境修改
